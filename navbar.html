@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ecole</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<!-- NAVBAR
+================================================== -->
+<body style="padding:50px 0 0 0">
+<div class="container">
+
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php">Accueuil</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="salles.php">Salles</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-collapse navbar-right" style="padding-top: 08px;">
+                        <form method="post" class="form-inline" action="module_recherche.php" role="form">
+                            <input type="text" class="form-control" id="search" name="search"/>
+                            <button class="btn btn-primary"><span class="icon"><i class="glyphicon glyphicon-search"></i> </span> </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+

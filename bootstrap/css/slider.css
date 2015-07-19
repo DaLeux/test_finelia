@@ -1,0 +1,84 @@
+*{margin: 0; padding: 0;}
+
+.main{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+#diaporama{
+	width: 900px;
+	overflow: hidden;
+	display: inline-block;
+	margin-top: 5%;
+}
+
+#diaposlider{
+	width: 100000000%;
+	height: 425px;
+	transition: transform 1s;
+	-webkit transition: -webkit-transform 1s;
+	-moz-transform: translateX(opx);
+	-webkit-transform: translateX(opx);
+	-o-transform:translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+
+}
+
+.diapo{
+	float: left;
+	width: 900px;
+	height: 100px;
+	text-align: center;
+}
+
+.diapo>img{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#tableau{
+	margin-top: 50px;
+}
+
+#register{
+	margin-left: 40%;
+	margin-top: 5%;
+	margin-right: 50%;
+}
+
+#ddn{
+	margin-right: 55%;
+}
+
+#rechercher{
+	margin-top: 10%;
+	margin-left: 35%;
+}
+
+#connexion{
+	float: left;
+	width: 600px;
+}
+
+#bouttonrecherche{
+	float: right;
+	width: 10%;
+}
+
+#menuderoulant{
+	float: right;
+	max-width: 10%;
+}
+
+#search{
+	float: right;
+	width: 87px;
+}
+
+#connexion_search{
+	display: inline-block;
+	float: right;
+	width: 65%;
+}
