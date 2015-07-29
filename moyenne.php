@@ -12,36 +12,48 @@
 	$get_matiere->execute();
 	$matiere=$get_matiere->fetchAll();
 
-	
-
 	if (isset($_POST['etudiant'])) {
-		$get_note = $bdd->prepare("SELECT note,coefficient FROM notes INNER JOIN matiere WHERE foreign_key_etudiant = :id_etudiant AND notes.foreign_key_matiere = matiere.id");
-		//$get_note = $bdd->prepare("SELECT note,coefficient FROM notes INNER JOIN matiere WHERE foreign_key_etudiant = 1 AND notes.foreign_key_matiere = matiere.id");
-		$get_note->bindParam(':id_etudiant',$print_etudiant['id']);
+		$get_note = $bdd->prepare("SELECT note,coefficient FROM notes WHERE `foreign_id_key_etudiant` = (SELECT id FROM etudiants WHERE id = :etudiant)");
+		$get_note->bindParam(':etudiant',$_POST['etudiant']);
 		$get_note->execute();
-		$moyenne=$get_note->fetchAll();
+		$note=$get_note->fetchAll();
 
-		echo '<pre>';
-		var_dump($moyenne);
-		echo "<pre>";
-		/*foreach ($note as $moyenne_generale){
-			$moyenne_etudiant=$moyenne['note']*$moyenne['coefficient'];
+		$eleve=$_POST['etudiant'];
+		$moyenne_generale = 0;
+		$coefficient_general = 0;
+		foreach ($note as $moyenne) {
+			$moyenne_generale = $moyenne_generale+($moyenne['note']*$moyenne['coefficient']);
+			$coefficient_general = $coefficient_general+$moyenne['coefficient'];
+			
 		}
-
-		echo $moyenne_etudiant;*/
+		if ($coefficient_general != 0) {
+		
+		$moyenne_generale = $moyenne_generale / $coefficient_general;
+		
+		}
 	}
 ?>
 	<form method="post" action="#">
 		<div>
 			<select class="form-control" name="etudiant">
 				<?php 
-					foreach ($etudiants as $print_etudiant) {
+					foreach ($etudiants as $print_etudiant):
 				?>
-					<option><?=$print_etudiant['nom_prenom'];?></option>
-					
-				<?php } ?>
+					<option value="<?=$print_etudiant['id']?>" name="id"><?=$print_etudiant['nom_prenom'];?></option>
+				<?php
+					endforeach;
+				?>
 			</select>
+
+
+
+
 			<button type="submit" class="btn btn-primary" id="button">Calculer la moyenne</button>
 		</div>
 </form>
 
+<?php
+	if (isset($_POST['etudiant'])) {
+		echo "La moyenne est de $moyenne_generale";
+	}
+?>
